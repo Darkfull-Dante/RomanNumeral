@@ -48,19 +48,19 @@ namespace Domain
                 {
                     continue;
                 }
-                else if (baseValue >= 1 && baseValue <= 4)
+                if (baseValue >= 1 && baseValue <= 4)
                 {
                     result += ConcatChar(CHAR_VALUES[i], baseValue);
                 }
-                else if (baseValue >= 4 && baseValue <= 8)
+                if (baseValue >= 4 && baseValue <= 8)
                 {
                     result += CHAR_VALUES[i + 1].ToString(); 
                 }
-                else if (baseValue >= 6 && baseValue <= 9)
+                if (baseValue >= 6 && baseValue <= 9)
                 {
                     result += ConcatChar(CHAR_VALUES[i], baseValue - 5);
                 }
-                else if (baseValue == 9)
+                if (baseValue == 9)
                 {
                     result += CHAR_VALUES[i + 2].ToString();
                 }
