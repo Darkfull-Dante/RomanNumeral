@@ -58,7 +58,7 @@ namespace Domain
                 }
                 else if (baseValue >= 6 && baseValue <= 9)
                 {
-                    result += ConcatChar(CHAR_VALUES[i], baseValue);
+                    result += ConcatChar(CHAR_VALUES[i], baseValue - 5);
                 }
                 else if (baseValue == 9)
                 {
@@ -69,6 +69,24 @@ namespace Domain
             return result;
         }
 
+        /// <summary>
+        /// Returns a string representing 'value' in roman numeral
+        /// </summary>
+        /// <param name="value">the float to converter. The number most be between 1 and 3999. The value will be converted to an integer</param>
+        /// <returns>Roman Numeral equilvalen to 'value'</returns>
+        public static string NumToRoman(float value)
+        {
+            int convert = (int)value;
+
+            return NumToRoman(convert);
+        }
+
+        /// <summary>
+        /// concatenate the correct number of character for a maximum of 3 based on the value of the number provided
+        /// </summary>
+        /// <param name="character">the character to concatenate</param>
+        /// <param name="number">the number of concatenation (loops around 3</param>
+        /// <returns>string containing the character repeated a maximum of 3 times</returns>
         private static string ConcatChar(char character, int number)
         {
             return new string(character, ((number - 1) % 3) + 1);
