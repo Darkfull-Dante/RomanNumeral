@@ -81,6 +81,46 @@ namespace Domain
             return NumToRoman(convert);
         }
 
+        public static int RomanToNum(string value)
+        {
+            int result = 0;
+            value = value.ToUpper();
+            char[] valueChars = value.ToCharArray();
+
+            for (int i = 0; i < value.Length; i++)
+            {
+
+                int currentValue = CharToIntValue(valueChars[i]);
+
+                if (i != value.Length - 1)
+                {
+                    if (currentValue < CharToIntValue(valueChars[i + 1]))
+                    {
+                        currentValue *= -1;
+                    }
+
+                }
+                
+                result += currentValue;
+            }
+
+            return result;
+        }
+
+        private static int CharToIntValue(char character)
+        {
+            
+            for (int i = 0; i < NB_OF_VALUES; i++)
+            {
+                if (character == CHAR_VALUES[i])
+                {
+                    return INT_VALUES[i];
+                }
+            }
+
+            throw new ArgumentException(character + " is not a valid roman numeral character");
+        }
+
         /// <summary>
         /// concatenate the correct number of character for a maximum of 3 based on the value of the number provided
         /// </summary>
