@@ -8,7 +8,7 @@ namespace CustomTest
     {
         static void Main()
         {
-            Console.WriteLine(RomanNumeral.RomanToNum("XLIX"));
+            Console.WriteLine(RomanNumeral.RomanToNum("XL"));
 
             Utils.WaitForEnter();
         }

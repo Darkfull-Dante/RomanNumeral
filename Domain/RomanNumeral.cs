@@ -10,7 +10,7 @@ namespace Domain
     {
 
         static readonly int[] INT_VALUES = { 1, 5, 10, 50, 100, 500, 1000 };
-        static readonly char[] CHAR_VALUES = { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
+        static readonly char[] CHAR_VALUES = { 'I', 'V', 'X', 'L', 'C', 'D', 'M'};
         const int NB_OF_VALUES = 7;
         const int MAX_VALUE = 3999;
 
@@ -102,6 +102,11 @@ namespace Domain
                 }
                 
                 result += currentValue;
+            }
+
+            if (value != NumToRoman(result))
+            {
+                throw new ArgumentException(value + " not a valid Roman Number");
             }
 
             return result;
